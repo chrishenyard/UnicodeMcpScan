@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/UnicodeMcpScan.Cli/UnicodeMcpScan.Cli.csproj" Id="58b56a9e-03f2-4bb2-affb-c3b8a735fbb5" />
+  <Project Path="src/UnicodeMcpScan.Tests/UnicodeMcpScan.Tests.csproj" Id="d76d974d-d7dc-4117-9b9b-4554540a2f4e" />
+  <Project Path="src\UnicodeMcpScan.Core/UnicodeMcpScan.Core.csproj" />
+</Solution>
