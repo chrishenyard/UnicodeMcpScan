@@ -70,4 +70,31 @@ public sealed class UnicodePolicyConfig
     /// Optional override of rule severities by RuleId.
     /// </summary>
     public Dictionary<string, Severity> RuleSeverities { get; init; } = new();
+
+    public static UnicodePolicy CreateDefaultPolicy()
+    {
+        var cfg = new UnicodePolicyConfig
+        {
+            StrictWhitelist = true,
+            AllowAsciiWhitespace = true,
+            AllowedCodePoints = [],
+            AllowedRanges = { "0021-007E" }, // printable ASCII (space handled by ascii whitespace)
+            AllowedCategories = [],
+            DenyFormatCharacters = true,
+            DenyBidiControls = true,
+            DenyNonAsciiWhitespace = true,
+            RequireNfcNormalization = true,
+            NonNfcSeverity = Severity.Warning,
+            DetectMixedScripts = true,
+            MixedScriptSeverity = Severity.Warning,
+            DeniedCodePoints = { "007F" },
+            RuleSeverities = new Dictionary<string, Severity>
+            {
+                [UnicodePolicy.Rule_NonNfc] = Severity.Warning,
+                [UnicodePolicy.Rule_MixedScripts] = Severity.Warning,
+            }
+        };
+
+        return new UnicodePolicy(cfg);
+    }
 }

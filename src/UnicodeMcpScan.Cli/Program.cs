@@ -34,18 +34,18 @@ public class Program
         var includes = GetMultiArgValues(args, "--include");
         var excludes = GetMultiArgValues(args, "--exclude");
 
-        if (!File.Exists(configPath))
+        var policy = UnicodePolicyConfig.CreateDefaultPolicy();
+
+        if (File.Exists(configPath))
         {
-            Console.Error.WriteLine($"Config not found: {configPath}");
-            return 2;
+            var cfg = JsonSerializer.Deserialize<UnicodePolicyConfig>(
+                File.ReadAllText(configPath),
+                JsonOptions)
+                ?? throw new InvalidOperationException("Failed to parse config.");
+
+            policy = new UnicodePolicy(cfg);
         }
 
-        var cfg = JsonSerializer.Deserialize<UnicodePolicyConfig>(
-            File.ReadAllText(configPath),
-            JsonOptions)
-            ?? throw new InvalidOperationException("Failed to parse config.");
-
-        var policy = new UnicodePolicy(cfg);
         var scanner = new UnicodeScanner(policy);
 
         var files = ResolveFiles(path, recursive, includes, excludes).ToList();

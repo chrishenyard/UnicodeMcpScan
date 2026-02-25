@@ -1,34 +1,25 @@
 {
   "strictWhitelist": true,
   "allowAsciiWhitespace": true,
-
+  "allowedCodePoints": [
+  ],
   "allowedRanges": [
     "0021-007E"
   ],
-
-  "allowedCodePoints": [
-  ],
-
   "allowedCategories": [
   ],
-
-  "deniedCodePoints": [
-    "007F"
-  ],
-
   "denyFormatCharacters": true,
   "denyBidiControls": true,
   "denyNonAsciiWhitespace": true,
-
   "requireNfcNormalization": true,
   "nonNfcSeverity": "Warning",
-
   "detectMixedScripts": true,
   "mixedScriptSeverity": "Warning",
-
+  "deniedCodePoints": [
+    "007F"
+  ],
   "ruleSeverities": {
-    "MCP0006": "Warning",
-    "MCP0005": "Warning"
+    "MCP0005": "Warning",
+    "MCP0006": "Warning"
   }
 }
-
