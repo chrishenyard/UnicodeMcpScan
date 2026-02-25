@@ -1,0 +1,34 @@
+{
+  "strictWhitelist": true,
+  "allowAsciiWhitespace": true,
+
+  "allowedRanges": [
+    "0021-007E"
+  ],
+
+  "allowedCodePoints": [
+  ],
+
+  "allowedCategories": [
+  ],
+
+  "deniedCodePoints": [
+    "007F"
+  ],
+
+  "denyFormatCharacters": true,
+  "denyBidiControls": true,
+  "denyNonAsciiWhitespace": true,
+
+  "requireNfcNormalization": true,
+  "nonNfcSeverity": "Warning",
+
+  "detectMixedScripts": true,
+  "mixedScriptSeverity": "Warning",
+
+  "ruleSeverities": {
+    "MCP0006": "Warning",
+    "MCP0005": "Warning"
+  }
+}
+
